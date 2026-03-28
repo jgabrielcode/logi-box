@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGIN BOX - Milheiro</title>
+    <link rel="stylesheet" href="../assets/css/cadastro.css" />
+  </head>
+  <body>
+    <section class="form-container">
+      <div class="top-nav">
+        <a class="back-link" href="../index.html">← Menu Principal</a>
+      </div>
+      <h2>Conversor - Milheiro</h2>
+      <div class="field-group">
+        <label for="itens-milheiro">Quantidade de itens por milheiro</label>
+        <input
+          type="number"
+          id="itens-milheiro"
+          min="1"
+          placeholder="Digite a quantidade por milheiro"
+        />
+      </div>
+      <div class="field-group">
+        <label for="quantidade-desejada">Quantidade desejada</label>
+        <input
+          type="number"
+          id="quantidade-desejada"
+          min="1"
+          placeholder="Digite a quantidade total desejada"
+        />
+      </div>
+      <div class="action-row">
+        <button class="btn-submit">Converter</button>
+      </div>
+    </section>
+    <section
+      class="result-container"
+      id="result-container"
+      style="display: none"
+    >
+      <button class="btn-back" id="btn-back">←</button>
+      <h2>Resultado</h2>
+      <p id="result-text"></p>
+    </section>
+    <script src="../assets/js/milheiro.js"></script>
+  </body>
+</html>

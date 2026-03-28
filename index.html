@@ -4,13 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LOGIN BOX</title>
-    <link rel="shortcut icon" href="assets/img/box-open-solid-full.svg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link
+      rel="shortcut icon"
+      href="assets/img/box-open-solid-full.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="assets/css/index.css" />
   </head>
   <body>
     <main class="card">
       <h1>LOGIN BOX</h1>
       <p>Conversor de sistema logístico</p>
+
+      <h2>Escolha o tipo de conversão:</h2>
+      
+      <div class="conversion-selection">
+        <label class="option caixas">
+          <input type="radio" name="conversionType" value="caixas" checked />
+          <span>Caixas</span>
+        </label>
+        <label class="option milheiro">
+          <input type="radio" name="conversionType" value="milheiro" />
+          <span>Milheiro</span>
+        </label>
+      </div>
       <button class="start-btn" id="btnStart">Iniciar</button>
     </main>
 
