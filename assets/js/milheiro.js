@@ -19,16 +19,24 @@ btnCoverter.addEventListener("click", (e) => {
     return;
   }
 
-  const calculo = quantidadeDesejada / quantidadePorMilheiro;
-  const milheiros = Math.floor(calculo);
-  const unidades = quantidadeDesejada - milheiros * quantidadePorMilheiro;
-
-  let resultado = `Você precisa de ${milheiros} milheiro(s)`;
-  if (unidades > 0) {
-    resultado += ` e ${unidades} unidade(s) avulsa(s).`;
-  } else {
-    resultado += `.`;
+  if(quantidadeDesejada < 1000){
+    alert("Preencha um valor valido acima de 1000 na quantidade desejada")
+    return;
   }
+
+  const calculo = quantidadeDesejada / quantidadePorMilheiro;
+
+  
+  let milheiros = Math.floor(calculo);
+
+  let parcial = milheiros * quantidadePorMilheiro
+
+  if(parcial < quantidadeDesejada){
+    milheiros++
+  }
+
+  
+  let resultado = `Você precisa de ${milheiros} rolo(s)`;
 
   // Transição: esconder form e mostrar resultado
   formContainer.classList.add("hide");
