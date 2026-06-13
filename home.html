@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__brand">
+        <h1><a href="./home.html">LOGI BOX</a></h1>
+      </div>
+
+      <div class="topbar__user" aria-label="Usuário">
+        <i class="bi bi-person-circle"></i>
+        <span>Usuario</span>
+      </div>
+    </header>
+
+    <main>
+      <aside class="menu_lateral">
+        <a
+          href="#"
+          class="nav-btn"
+          data-page="index.html"
+          aria-label="Calculadora"
+          ><i class="bi bi-calculator"></i></a>
+        <a href="#" aria-label="Base de dados"
+          ><i class="bi bi-database-fill"></i
+        ></a>
+        <a href="#" aria-label="Ferramentas"><i class="bi bi-scissors"></i></a>
+      </aside>
+
+      <section class="conteudo-area">
+        <section class="conteudo" id="conteudo">
+          <div class="conteudo__placeholder">
+            <i class="bi bi-grid-3x3-gap"></i>
+            <p>Escolha uma opção</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const calculator = document.querySelector(
+          '.nav-btn[data-page="index.html"]',
+        );
+        const content = document.getElementById("conteudo");
+
+        if (calculator && content) {
+          calculator.addEventListener("click", (event) => {
+            event.preventDefault();
+            content.innerHTML =
+              '<iframe src="index.html" title="Página principal"></iframe>';
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
