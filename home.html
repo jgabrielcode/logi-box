@@ -13,8 +13,20 @@
   </head>
   <body>
     <header class="topbar">
-      <div class="topbar__brand">
-        <h1><a href="./home.html">LOGI BOX</a></h1>
+      <div class="topbar__left">
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div class="topbar__brand">
+          <h1><a href="./home.html">LOGI BOX</a></h1>
+        </div>
       </div>
 
       <div class="topbar__user" aria-label="Usuário">
@@ -24,13 +36,14 @@
     </header>
 
     <main>
-      <aside class="menu_lateral">
+      <aside class="menu_lateral" id="menuLateral">
         <a
           href="#"
           class="nav-btn"
           data-page="index.html"
           aria-label="Calculadora"
-          ><i class="bi bi-calculator"></i></a>
+          ><i class="bi bi-calculator"></i
+        ></a>
         <a href="#" aria-label="Base de dados"
           ><i class="bi bi-database-fill"></i
         ></a>
@@ -53,12 +66,35 @@
           '.nav-btn[data-page="index.html"]',
         );
         const content = document.getElementById("conteudo");
+        const menuToggle = document.getElementById("menuToggle");
+        const menuLateral = document.getElementById("menuLateral");
 
         if (calculator && content) {
           calculator.addEventListener("click", (event) => {
             event.preventDefault();
             content.innerHTML =
               '<iframe src="index.html" title="Página principal"></iframe>';
+          });
+        }
+
+        if (menuToggle && menuLateral) {
+          menuToggle.addEventListener("click", () => {
+            const isOpen = menuLateral.classList.toggle("open");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+          });
+
+          document.addEventListener("click", (event) => {
+            const clickedInsideMenu = menuLateral.contains(event.target);
+            const clickedToggle = menuToggle.contains(event.target);
+
+            if (
+              !clickedInsideMenu &&
+              !clickedToggle &&
+              menuLateral.classList.contains("open")
+            ) {
+              menuLateral.classList.remove("open");
+              menuToggle.setAttribute("aria-expanded", "false");
+            }
           });
         }
       });
